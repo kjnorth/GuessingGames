@@ -2,12 +2,16 @@ import guessTheWordClasses
 
 if __name__ == '__main__':
 
-    guess_word = guessTheWordClasses.CheckInputAgainstGuessWord("Juan Carlos")
+    guess_word = guessTheWordClasses.CheckInputAgainstGuessWord("Max the cat")
     print("Guess the word!")
+    guess_word.populate_underscores_and_spaces()
 
     while True:
-        guess_word.populate_underscores_and_spaces()
-        guess_word.print_blank_spaces_and_correct_guesses()
+        guess_word.print_underscores_spaces_and_correct_guesses()
+        if guess_word.check_if_won():
+            break
+        else:
+            pass
         user_input = input("\nEnter a letter")
         input_validation = guessTheWordClasses.InputValidation(user_input)
 
